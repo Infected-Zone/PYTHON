@@ -22,7 +22,7 @@ def zoneauth():
     print('Connecting to InfectedZone Server #', r, sep='')
     try:
         with requests.Session() as sess:
-            checkauth = sess.post('http://localhost/zone/auth.php', data=data)
+            checkauth = sess.post('https://infected-zone.com/auth.php', data=data)
             response = checkauth.json()
             print(response)
             if response[dec(cmd[0])] == dec(stats[1]):
