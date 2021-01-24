@@ -24,7 +24,6 @@ def zoneauth():
         with requests.Session() as sess:
             checkauth = sess.post('https://infected-zone.com/auth.php', data=data)
             response = checkauth.json()
-            print(response)
             if response[dec(cmd[0])] == dec(stats[1]):
                 if response[dec(cmd[1])] == dec(stats[0]):
                     keyfile = open('key.dat', 'w')
