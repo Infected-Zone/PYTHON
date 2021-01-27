@@ -1,4 +1,4 @@
-import requests, json, uuid, random, os
+import requests, json, uuid, random, os, sys
 
 current_hwid = uuid.getnode()
 r = random.randint(1, 25)
@@ -32,15 +32,15 @@ def zoneauth():
                     print('Welcome: ' + response[dec(cmd[3])] + ', enjoy your exclusive infected-zone.com tool!')
                 else:
                     print('You need to be Premium+ to use this tool sir.')
-                    exit()
+                    sys.exit()
             else:
                 print('Error: ' + response[dec(cmd[2])])
                 if os.path.isfile('key.dat'):
                     os.remove('key.dat')
-                exit()
+                sys.exit()
     except Exception as ex:
         print('Failed to do something: ' + str(ex))
-        exit()
+        sys.exit()
 
 def dec(data):
     return bytes.fromhex(data).decode('utf-8')
